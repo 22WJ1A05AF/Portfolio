@@ -1,0 +1,1618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yelleni Srija - Software Development and Machine Learning Portfolio">
+<title>Yelleni Srija | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #f5f4ef;
+    --card: rgba(255,255,255,.83);
+    --text: #17251f;
+    --muted: #68746d;
+    --green: #315f4b;
+    --green-dark: #214936;
+    --gold: #b38a4b;
+    --border: rgba(49,95,75,.14);
+    --shadow: 0 15px 45px rgba(35,55,40,.09);
+}
+
+body.dark {
+    --bg: #111a16;
+    --card: rgba(27,40,32,.92);
+    --text: #edf3ed;
+    --muted: #a7b5aa;
+    --green: #a4c9ad;
+    --green-dark: #b8d7c0;
+    --gold: #d0ad72;
+    --border: rgba(220,235,222,.13);
+    --shadow: 0 15px 45px rgba(0,0,0,.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 8% 5%, rgba(137,170,143,.34), transparent 35%),
+        radial-gradient(ellipse at 95% 20%, rgba(205,174,123,.23), transparent 30%),
+        radial-gradient(ellipse at 75% 95%, rgba(161,184,178,.23), transparent 35%),
+        linear-gradient(135deg,var(--bg),#eeeee7,var(--bg));
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: .3s;
+}
+
+/* Premium background grid */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: .35;
+    background-image:
+        linear-gradient(rgba(49,95,75,.06) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(49,95,75,.06) 1px,transparent 1px);
+    background-size: 55px 55px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 90%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 550px;
+    height: 550px;
+    right: -250px;
+    top: -220px;
+    background: radial-gradient(circle,rgba(137,170,143,.25),transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+    z-index: -1;
+    animation: floatingGlow 16s ease-in-out infinite alternate;
+}
+
+@keyframes floatingGlow {
+    to { transform: translate(-80px,100px) scale(1.15); }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1160px,92%);
+    margin: auto;
+}
+
+section {
+    padding: 85px 0;
+}
+
+.section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(2rem,4vw,3rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    max-width: 650px;
+    margin-bottom: 35px;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+/* Navigation */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--card);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 75px;
+    gap: 15px;
+}
+
+.logo {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    transition: .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.icon-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    border: 1px solid var(--green);
+    border-radius: 30px;
+    padding: 12px 23px;
+    background: var(--green);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: var(--green-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--green);
+    border-color: var(--border);
+}
+
+.btn-outline:hover {
+    background: var(--green);
+    color: white;
+}
+
+/* Hero section */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 75px 0;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 15px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 30px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #65a574;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(101,165,116,.14);
+}
+
+.hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(3rem,6.7vw,6rem);
+    line-height: 1.04;
+    margin: 22px 0;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--green);
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 590px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-info {
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile-area {
+    position: relative;
+    max-width: 370px;
+    width: 100%;
+    justify-self: end;
+}
+
+.profile-frame {
+    padding: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 190px 190px 28px 28px;
+    box-shadow: var(--shadow);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 180px 180px 20px 20px;
+}
+
+.profile-caption {
+    position: absolute;
+    left: -35px;
+    bottom: 35px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 19px;
+    box-shadow: var(--shadow);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.profile-caption small {
+    display: block;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+/* About */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.card p {
+    color: var(--muted);
+    margin-top: 12px;
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.highlight {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    background: var(--card);
+}
+
+.highlight h3 {
+    color: var(--green);
+    margin-bottom: 7px;
+    font-size: 16px;
+}
+
+.highlight p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Skills */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.skill-card h3 {
+    color: var(--green);
+    margin-bottom: 16px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.skill-tags span {
+    padding: 7px 12px;
+    font-size: 12px;
+    border-radius: 20px;
+    background: rgba(137,170,143,.15);
+    border: 1px solid var(--border);
+}
+
+/* Projects */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.filter-btn {
+    padding: 9px 17px;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--green);
+    color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.project-card {
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+}
+
+.project-art {
+    height: 155px;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(circle,rgba(255,255,255,.7),transparent 65%),
+        linear-gradient(135deg,#dce6da,#eee2cb);
+    color: #315f4b;
+    font-size: 45px;
+}
+
+body.dark .project-art {
+    background: linear-gradient(135deg,#263b2d,#344438);
+    color: #c5dfc9;
+}
+
+.project-content {
+    padding: 23px;
+}
+
+.project-type {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.project-content h3 {
+    font-family: 'Manrope',sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 10px 0;
+}
+
+.project-content p {
+    color: var(--muted);
+    font-size: 13px;
+    min-height: 75px;
+}
+
+.project-tech {
+    color: var(--green);
+    font-size: 12px;
+    margin: 12px 0 17px;
+}
+
+.project-actions {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.text-btn {
+    border: none;
+    background: none;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.project-actions a {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Education */
+
+.education-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 25px;
+}
+
+.timeline-item {
+    padding: 0 0 25px 22px;
+    border-left: 1px solid var(--border);
+    position: relative;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    background: var(--green);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.timeline-item small {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.timeline-item h3 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.timeline-item p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.achievement-list {
+    list-style: none;
+}
+
+.achievement-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.achievement-list li:last-child {
+    border-bottom: none;
+}
+
+/* Contact */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 35px;
+    padding: 40px;
+}
+
+.contact-details {
+    display: grid;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.contact-details a {
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+.contact-details a:hover {
+    color: var(--green);
+}
+
+.contact-form {
+    display: grid;
+    gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--green);
+}
+
+.contact-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+}
+
+footer a {
+    color: var(--green);
+    margin: 0 7px;
+}
+
+/* Project popup */
+
+dialog {
+    width: min(550px,90%);
+    margin: auto;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--card);
+    color: var(--text);
+    padding: 28px;
+    box-shadow: var(--shadow);
+}
+
+dialog::backdrop {
+    background: rgba(10,20,15,.65);
+    backdrop-filter: blur(5px);
+}
+
+dialog h2 {
+    font-family: 'Manrope',sans-serif;
+    margin-bottom: 15px;
+}
+
+dialog p, dialog li {
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+dialog ul {
+    padding-left: 20px;
+}
+
+.dialog-close {
+    float: right;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Scroll animations */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: .7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:900px) {
+    .hero-grid {
+        grid-template-columns: 1fr .8fr;
+        gap: 25px;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px) {
+    section {
+        padding: 65px 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .education-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .profile-area {
+        justify-self: center;
+        max-width: 310px;
+        margin-top: 25px;
+    }
+
+    .profile-caption {
+        left: -12px;
+    }
+
+    .contact-grid {
+        padding: 25px;
+    }
+}
+
+@media(max-width:500px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .projects-grid,
+    .skills-grid,
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .project-content p {
+        min-height: auto;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">Yelleni <span>Srija.</span></a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☾</button>
+            <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu">☰</button>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HOME / HERO -->
+
+<section class="hero" id="home">
+    <div class="container hero-grid">
+
+        <div class="reveal">
+
+            <div class="availability">
+                <span class="dot"></span>
+                Open to opportunities
+            </div>
+
+            <p class="eyebrow" style="margin-top:25px">
+                Computer Science & Engineering
+            </p>
+
+            <h1>Hello, I'm <span>Yelleni Srija.</span></h1>
+
+            <p class="hero-description">
+                I am passionate about software development, machine learning,
+                problem-solving and building practical technology solutions.
+                I enjoy learning new technologies and transforming ideas into
+                useful applications.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">Explore My Work ↗</a>
+
+                <a href="assets/Srija_Resume.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-outline">
+                   View Resume ↗
+                </a>
+
+                <a href="assets/Srija_Resume.pdf"
+                   download="Yelleni_Srija_Resume.pdf"
+                   class="btn btn-outline">
+                   Download PDF ↓
+                </a>
+            </div>
+
+            <div class="hero-info">
+                <span>📍 Wanaparthy, Telangana, India</span>
+                <span>✦ B.Tech 2026 Graduate</span>
+            </div>
+
+        </div>
+
+        <div class="profile-area reveal">
+            <div class="profile-frame">
+                <img
+                    src="assets/passportphoto.jpeg"
+                    alt="Yelleni Srija profile photo"
+                    onerror="this.onerror=null;this.alt='Profile photo not found';">
+            </div>
+
+            <div class="profile-caption">
+                Curious by nature
+                <small>Building · Learning · Growing</small>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container">
+
+        <p class="eyebrow reveal">About Me</p>
+
+        <h2 class="section-title reveal">
+            Thoughtful Work.<br>
+            <span style="color:var(--green)">Practical Impact.</span>
+        </h2>
+
+        <p class="section-subtitle reveal">
+            A little introduction about my background, interests and approach
+            towards technology.
+        </p>
+
+        <div class="about-grid">
+
+            <div class="card reveal">
+                <h3>My Journey</h3>
+
+                <p>
+                    I am a Computer Science and Engineering graduate from
+                    Guru Nanak Institution Technical Campus. I have a strong
+                    interest in Java, Python, databases, software development
+                    and machine learning.
+                </p>
+
+                <p>
+                    Through academic projects, I have gained practical
+                    experience in developing predictive models and secure
+                    cloud applications. I enjoy understanding problems,
+                    developing solutions and continuously improving my skills.
+                </p>
+
+                <p>
+                    I am looking forward to opportunities where I can
+                    contribute, collaborate and grow as a software professional.
+                </p>
+            </div>
+
+            <div class="about-highlights">
+
+                <div class="highlight reveal">
+                    <h3>Problem Solving</h3>
+                    <p>Breaking problems into clear and manageable solutions.</p>
+                </div>
+
+                <div class="highlight reveal">
+                    <h3>Development</h3>
+                    <p>Building structured and practical software applications.</p>
+                </div>
+
+                <div class="highlight reveal">
+                    <h3>Machine Learning</h3>
+                    <p>Exploring data patterns and developing predictive models.</p>
+                </div>
+
+                <div class="highlight reveal">
+                    <h3>Continuous Learning</h3>
+                    <p>Improving through practice and new technologies.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+    <div class="container">
+
+        <p class="eyebrow reveal">Technical Expertise</p>
+
+        <h2 class="section-title reveal">
+            My Technology <span style="color:var(--green)">Toolkit.</span>
+        </h2>
+
+        <p class="section-subtitle reveal">
+            Technologies, development tools and concepts I have worked with.
+        </p>
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">
+                <h3>Programming</h3>
+                <div class="skill-tags">
+                    <span>Java</span>
+                    <span>Python</span>
+                    <span>SQL</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+        
+            <div class="skill-card reveal">
+                <h3>Developer Tools</h3>
+                <div class="skill-tags">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>VS Code</span>
+                    <span>MySQL</span>
+                    <span>Google Colab</span>
+                </div>
+            </div>
+
+            <div class="skill-card reveal">
+                <h3>Core Concepts</h3>
+                <div class="skill-tags">
+                    <span>OOP</span>
+                    <span>Operating Systems</span>
+                    <span>Data Analysis</span>
+                    <span>DBMS</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+    <div class="container">
+
+        <p class="eyebrow reveal">My Work</p>
+
+        <h2 class="section-title reveal">
+            Projects Built with <span style="color:var(--green)">Purpose.</span>
+        </h2>
+
+        <p class="section-subtitle reveal">
+            Explore my academic projects in machine learning and cloud security.
+            Select View Details to learn more or Repository to see the source code.
+        </p>
+
+        <div class="filters reveal">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            <button class="filter-btn" data-filter="security">Cloud Security</button>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1 -->
+
+            <article class="project-card reveal" data-category="ml">
+
+                <div class="project-art">📊</div>
+
+                <div class="project-content">
+
+                    <div class="project-type">Machine Learning · Regression</div>
+
+                    <h3>Wages Prediction Using Random Forest</h3>
+
+                    <p>
+                        Developed a machine learning model to predict employee
+                        salaries using features such as age, education,
+                        job role and experience.
+                    </p>
+
+                    <div class="project-tech">
+                        Python · Pandas · Scikit-learn
+                    </div>
+
+                    <div class="project-actions">
+
+                        <button class="text-btn"
+                            data-project="wages">
+                            View Details ↗
+                        </button>
+
+                        <a href="https://github.com/22WJ1A05AF/Salary-prediction-using-Randon-forest"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                           Repository ↗
+                        </a>
+
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- PROJECT 2 -->
+
+            <article class="project-card reveal" data-category="ml">
+
+                <div class="project-art">🚗</div>
+
+                <div class="project-content">
+
+                    <div class="project-type">Machine Learning · Prediction</div>
+
+                    <h3>Vehicle Carbon Emissions Prediction</h3>
+
+                    <p>
+                        Built a Random Forest model to predict vehicle CO₂
+                        emissions using engine size, fuel consumption,
+                        mileage and related vehicle attributes.
+                    </p>
+
+                    <div class="project-tech">
+                        Python · NumPy · Matplotlib · Random Forest
+                    </div>
+
+                    <div class="project-actions">
+
+                        <button class="text-btn"
+                            data-project="vehicle">
+                            View Details ↗
+                        </button>
+
+                        <a href="https://github.com/22WJ1A05AF/Prediction-Of-Vehicle-Carbon-Emissions-Using-Macjine-learning"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                           Repository ↗
+                        </a>
+
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- PROJECT 3 -->
+
+            <article class="project-card reveal" data-category="security">
+
+                <div class="project-art">🔐</div>
+
+                <div class="project-content">
+
+                    <div class="project-type">Cloud Security · Encryption</div>
+
+                    <h3>Secure Keyword Search and Key Management</h3>
+
+                    <p>
+                        Developed a secure cloud storage system using KASE
+                        and AES-256 encryption to support privacy-preserving
+                        keyword search over encrypted information.
+                    </p>
+
+                    <div class="project-tech">
+                        Java · KASE · AES-256
+                    </div>
+
+                    <div class="project-actions">
+
+                        <button class="text-btn"
+                            data-project="secure">
+                            View Details ↗
+                        </button>
+
+                        <a href="https://github.com/22WJ1A05AF/Secure-Keyword-Search-and-Key-Management-Scheme-in-Cloud-Environments"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                           Repository ↗
+                        </a>
+
+                    </div>
+
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROJECT DETAILS DIALOG -->
+
+<dialog id="projectDialog">
+
+    <button class="dialog-close" id="closeDialog" aria-label="Close">×</button>
+
+    <h2 id="dialogTitle"></h2>
+
+    <div id="dialogContent"></div>
+
+    <a id="dialogRepo" class="btn" href="#" target="_blank"
+       rel="noopener noreferrer">
+       Open Repository ↗
+    </a>
+
+</dialog>
+
+<!-- EDUCATION -->
+
+<section id="education">
+    <div class="container">
+
+        <p class="eyebrow reveal">Academic Journey</p>
+
+        <h2 class="section-title reveal">
+            Education & <span style="color:var(--green)">Achievements.</span>
+        </h2>
+
+        <div class="education-grid">
+
+            <div class="card reveal">
+                <h3 style="margin-bottom:25px">Education</h3>
+
+                <div class="timeline-item">
+                    <small>2022 – 2026</small>
+                    <h3>B.Tech – Computer Science & Engineering</h3>
+                    <p>Guru Nanak Institution Technical Campus</p>
+                    <p>CGPA: 8.7 / 10</p>
+                </div>
+
+                <div class="timeline-item">
+                    <small>2020 – 2022</small>
+                    <h3>Intermediate – MPC</h3>
+                    <p>C V Raman Junior College</p>
+                    <p>Percentage: 94.7%</p>
+                </div>
+
+                <div class="timeline-item">
+                    <small>2019 – 2020</small>
+                    <h3>SSC</h3>
+                    <p>Krishnaveni Talent High School</p>
+                    <p>Percentage: 100%</p>
+                </div>
+
+            </div>
+
+            <div class="card reveal">
+                <h3 style="margin-bottom:20px">Achievements & Activities</h3>
+
+                <ul class="achievement-list">
+                    <li>🏆 NPTEL Certification in Java and DBMS, certified by IIT.</li>
+                    <li>🎓 Participated in an Artificial Intelligence workshop.</li>
+                    <li>💻 Participated in a Java and Power BI workshop.</li>
+                    <li>📚 Strong academic performance throughout education.</li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="container">
+
+        <p class="eyebrow reveal">Get in Touch</p>
+
+        <h2 class="section-title reveal">
+            Let's Start a <span style="color:var(--green)">Conversation.</span>
+        </h2>
+
+        <p class="section-subtitle reveal">
+            Feel free to contact me regarding job opportunities,
+            collaborations or professional discussions.
+        </p>
+
+        <div class="card contact-grid reveal">
+
+            <div>
+                <h3>Contact Information</h3>
+
+                <div class="contact-details">
+
+                    <a href="mailto:srijayelleni@gmail.com">
+                        ✉ srijayelleni@gmail.com
+                    </a>
+
+                    <a href="tel:+919701861659">
+                        ☎ +91 97018 61659
+                    </a>
+
+                    <a href="https://github.com/22WJ1A05AF"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub ↗
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/yelleni-srija-a42b9b301"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        LinkedIn ↗
+                    </a>
+
+                    <span>📍 Wanaparthy, Telangana, India</span>
+
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+
+                <input type="text" id="visitorName"
+                    placeholder="Your Name" required>
+
+                <input type="email" id="visitorEmail"
+                    placeholder="Your Email" required>
+
+                <input type="text" id="visitorSubject"
+                    placeholder="Subject" required>
+
+                <textarea id="visitorMessage"
+                    placeholder="Your Message" required></textarea>
+
+                <button class="btn" type="submit">
+                    Send Message ↗
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+        <p>
+            © <span id="year"></span> Yelleni Srija.
+            Designed with care.
+        </p>
+
+        <p style="margin-top:8px">
+            <a href="#home">Home</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#contact">Contact</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+
+// MOBILE NAVIGATION
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+    });
+});
+
+// LIGHT AND DARK THEME
+
+const themeToggle = document.getElementById("themeToggle");
+
+if (localStorage.getItem("portfolioTheme") === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.textContent = "☀";
+}
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    const dark = document.body.classList.contains("dark");
+
+    themeToggle.textContent = dark ? "☀" : "☾";
+
+    localStorage.setItem(
+        "portfolioTheme",
+        dark ? "dark" : "light"
+    );
+});
+
+// PROJECT FILTERS
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        projectCards.forEach(card => {
+
+            card.hidden =
+                filter !== "all" &&
+                card.dataset.category !== filter;
+
+        });
+
+    });
+
+});
+
+// PROJECT DETAILS
+
+const projects = {
+
+    wages: {
+        title: "Wages Prediction Using Random Forest",
+        description: `
+            <p><strong>Objective:</strong> Predict employee salary
+            values based on candidate-related and job-related features.</p>
+
+            <ul>
+                <li>Used age, education, job role and experience features.</li>
+                <li>Performed data preprocessing and feature engineering.</li>
+                <li>Developed a Random Forest prediction model.</li>
+            </ul>
+
+            <p><strong>Technologies:</strong>
+            Python, Pandas and Scikit-learn.</p>
+        `,
+        link: "https://github.com/22WJ1A05AF/Salary-prediction-using-Randon-forest"
+    },
+
+    vehicle: {
+        title: "Vehicle Carbon Emissions Prediction",
+        description: `
+            <p><strong>Objective:</strong> Estimate vehicle CO₂
+            emissions using vehicle specifications.</p>
+
+            <ul>
+                <li>Used engine size and fuel consumption data.</li>
+                <li>Performed data analysis and model training.</li>
+                <li>Applied Random Forest for emissions prediction.</li>
+                <li>Used visualisations to understand model behaviour.</li>
+            </ul>
+
+            <p><strong>Technologies:</strong>
+            Python, NumPy, Pandas, Matplotlib and Scikit-learn.</p>
+        `,
+        link: "https://github.com/22WJ1A05AF/Prediction-Of-Vehicle-Carbon-Emissions-Using-Macjine-learning"
+    },
+
+    secure: {
+        title: "Secure Keyword Search and Key Management",
+        description: `
+            <p><strong>Objective:</strong> Build a privacy-preserving
+            cloud storage solution.</p>
+
+            <ul>
+                <li>Applied KASE for searchable encryption.</li>
+                <li>Used AES-256 for data confidentiality.</li>
+                <li>Implemented secure keyword search over encrypted data.</li>
+                <li>Designed key management and controlled file sharing.</li>
+            </ul>
+
+            <p><strong>Technologies:</strong>
+            Java, KASE and AES-256 encryption.</p>
+        `,
+        link: "https://github.com/22WJ1A05AF/Secure-Keyword-Search-and-Key-Management-Scheme-in-Cloud-Environments"
+    }
+
+};
+
+const dialog = document.getElementById("projectDialog");
+
+document.querySelectorAll("[data-project]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const project = projects[button.dataset.project];
+
+        document.getElementById("dialogTitle").textContent =
+            project.title;
+
+        document.getElementById("dialogContent").innerHTML =
+            project.description;
+
+        document.getElementById("dialogRepo").href =
+            project.link;
+
+        dialog.showModal();
+
+    });
+
+});
+
+document.getElementById("closeDialog").addEventListener("click", () => {
+    dialog.close();
+});
+
+// CONTACT FORM
+
+document.getElementById("contactForm").addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("visitorName").value.trim();
+
+    const email =
+        document.getElementById("visitorEmail").value.trim();
+
+    const subject =
+        document.getElementById("visitorSubject").value.trim();
+
+    const message =
+        document.getElementById("visitorMessage").value.trim();
+
+    const body =
+        `Hello Yelleni,
+
+${message}
+
+Regards,
+${name}
+${email}`;
+
+    const mailto =
+        `mailto:srijayelleni@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+
+});
+
+// SCROLL REVEAL ANIMATION
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+// ACTIVE NAVIGATION
+
+const sectionObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            document.querySelectorAll(".nav-links a").forEach(link => {
+
+                link.classList.toggle(
+                    "active",
+                    link.getAttribute("href") === "#" + entry.target.id
+                );
+
+            });
+
+        }
+
+    });
+
+}, { rootMargin: "-30% 0px -60% 0px" });
+
+document.querySelectorAll("main section[id]").forEach(section => {
+    sectionObserver.observe(section);
+});
+
+// CURRENT YEAR
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
